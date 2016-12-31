@@ -11,7 +11,7 @@ use Session;
 
 class TodosController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View
@@ -42,7 +42,12 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        $this->validate($request, [
+            'title' => 'required',
+            'due_at' => 'date|required',
+        ]);
+
         $requestData = $request->all();
         
         Todo::create($requestData);
