@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('admin/todos', 'Admin\\TodosController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
