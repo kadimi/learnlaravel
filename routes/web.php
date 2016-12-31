@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/todos', 'Admin\\TodosController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware' => 'auth'], function()
+{
+	Route::resource('admin/todos', 'Admin\\TodosController');
+});
