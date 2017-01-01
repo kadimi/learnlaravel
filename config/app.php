@@ -168,7 +168,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
-
+        Centaur\CentaurServiceProvider::class,
         /*
          * Application Service Providers...
          */
