@@ -6,8 +6,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Todo;
+use App\User;
 use Illuminate\Http\Request;
+use Auth;
 use Session;
+
 
 class TodosController extends Controller
 {
@@ -49,8 +52,10 @@ class TodosController extends Controller
         ]);
 
         $requestData = $request->all();
-        
-        Todo::create($requestData);
+ 
+        $todo = new Todo($requestData);
+        $todo->user()->associate(Auth::user());
+        $todo->save();
 
         Session::flash('flash_message', 'Todo added!');
 

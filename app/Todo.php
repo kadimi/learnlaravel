@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Todo extends Model
 {
@@ -27,5 +28,11 @@ class Todo extends Model
      */
     protected $fillable = ['title', 'due_at'];
 
-    
+    /**
+     * A todo belongs to a user.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
