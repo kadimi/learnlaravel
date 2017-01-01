@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Todo;
 
 class User extends Authenticatable
 {
@@ -32,6 +33,6 @@ class User extends Authenticatable
      */
     public function todos()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany(Todo::class);
     }
 }
